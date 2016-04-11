@@ -1,0 +1,66 @@
+<!--
+	View to handle the similarity search over images.
+-->
+<section class="searchFormClass">
+	<center>
+		<h1>TweetImages</h1>
+		<hr/>
+		<br/>
+	</center>
+</section>
+
+<section>
+	<center>
+		<!-- Search results -->
+		<button id="nextSimBtId" class="next_sim" disabled=true>Next</button>
+		<button id="prevSimBtId" class="prev_sim" disabled=true>Previous</button>
+
+		<section class="imageSimilarSliderSectionClass">
+			<div class="imageSimilarSliderDivContainerClass">
+				<% countImages = 0 
+		  	  	if (@resultSimilar != nil && @errorMessage.empty?)
+		  	  		@resultSimilar.each do |item| %>
+						<div>
+							<img id=<%= countImages %> src=<%= item.image_url %> class="imgItemClass"/>
+						</div>
+						<% countImages+=1 %> 
+					<% end %>
+				<% else %>
+					<% if @errorMessage.empty? %>
+						<div>
+							Nothing to show.
+						</div>
+					<% else %>
+						<div>
+							<%=@errorMessage%>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</section>
+		<br/>
+		<!-- Returned images -->
+		<div>
+			<% img = "image"
+			   if (countImages > 1)
+			      img = "images"	
+			   end %>
+			<%=countImages.to_s + " " + img.to_s %> retrieved from the database.
+		</div>
+	</center>
+</section>
+
+<section>
+	<br/>
+	<hr/>
+	<br/>	
+</section>
+
+<section>
+	<center>
+			<p>
+				<!-- Button to return to welcome page. -->
+				<%= button_to "Return", search_similar_redirectToSearchPage_path, method: :get %>
+			</p>
+	</center>
+</section>

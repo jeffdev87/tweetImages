@@ -1,0 +1,92 @@
+<!--
+	Main page where the searches for tweets occurs.
+-->
+<section class="searchFormClass">
+	<center>
+		<h1>TweetImages</h1>
+		<hr/>
+		<br/>
+		<%= form_tag search_tweets_search_path, :method => 'get' do %>
+			Twitter account <br/>
+			<p id="searchForm">
+				<%= text_field_tag :searchField, params[:searchField], id: 'searchText', :class => 'searchTextClass' %>
+				<%= submit_tag "Search", :name => nil, :id => "searchButton", :class => "searchButtonClass" %>
+			</p>
+		<% end %>
+	</center>
+	<br/>
+</section>
+
+<section>
+	<center>
+		<button id="nextBtId" class="next" disabled=true>Next</button>
+		<button id="prevBtId" class="prev" disabled=true>Previous</button>
+		<section class="imageSliderSectionClass">
+			<div class="imageSliderDivContainerClass">
+				<% countImages = 0 %>
+		  	  	<% if (@retrievedTweets != nil)
+		    		hasImage = false
+		    		i = 0
+		    		@retrievedTweets.each do |item|
+		      			if (item.media?)
+		      				countImages+=item.media.to_a.size
+		      				i+=1
+		      				hasImage = true
+		      				item.media.to_a.each do |itemMedia| %>
+		      					<div>
+		      						<img id=<%= i %> src=<%= itemMedia.media_url %> class="imgItemClass"/>
+		      					</div>
+		      				<% end %>	
+	      				<% end %>
+		      		<% end %>
+		      		<% if !hasImage %>
+			      		<div>
+							User <%= @userQuery%> has not posted any photos recently.
+						</div>	
+		      		<% end%>
+		      	<% else %>
+			      	<div>
+						<% if !@errorMessage.to_s.empty? %>
+							<%= @errorMessage.to_s %>
+						<% else %>
+							There is no image to be displayed now. Please, try a new search.
+						<% end %>
+					</div>
+	      		<% end %>
+			</div>
+		</section>
+		<br/>
+		<div>
+			<%=countImages %> images retrieved.
+		</div>
+	</center>
+</section>
+
+<section>
+	<br/>
+	<hr/>
+	<br/>	
+</section>
+
+<section class="searchSimilarFormClass">
+	<center>
+		<%= form_tag search_similar_searchSimilar_path, :method => 'get', :id => 'searchSimilarFormId' do %>
+			Selected image <br/>
+			<p id="searchSimilarForm">
+				<%= text_field_tag :imageId, params[:imageId], id: 'imageId', disabled: 'true', :class => 'imageInputClass' %>
+				<%= hidden_field_tag :tweeterUser, params[:searchField], id: 'tweeterUser', :value => params[:searchField] %>
+				<%= hidden_field_tag :imageUrl, params[:imageUrl], id: 'imageUrl' %>
+				<%= submit_tag "Search similar", :name => nil, :id => "searchSimilarButton", :class => "searchButtonClass" %>
+			</p>
+		<% end %>
+	</center>
+</section>
+
+<section>
+	<center>
+			<p>
+				<!-- Button to return to welcome page. -->
+				<%= button_to "Return", search_tweets_redirectToWelcomePage_path, method: :get %>
+			</p>
+	</center>
+</section>

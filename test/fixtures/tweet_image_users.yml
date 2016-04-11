@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: 
+  image_url: 
+  tweet: 
+  feat_vec: MyString
+
+two:
+  user_name: 
+  image_url: 
+  tweet: 
+  feat_vec: MyString

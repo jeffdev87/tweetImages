@@ -1,0 +1,25 @@
+<!--
+	Welcome page.
+-->
+<center>
+	<h1>TweetImages</h1>
+
+	<hr>
+	
+	<p> 
+		This application retrieves images from Twitter's users posts to allow you to perform similarity search over them.
+	</p>
+	<p>
+		We store tweet's data on our own database, in witch the similarity search is done. 
+	</p>
+	
+	<p> Press the Start button...</p>
+
+	<hr>
+
+	<p>
+		<!-- Button to redirect to the main page. -->
+		<%= button_to "Start", welcome_redirectToSearchPage_path, method: :get %>
+	</p>
+
+</center>

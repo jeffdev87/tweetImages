@@ -1,0 +1,36 @@
+.imageSliderDivContainerClass, .imageSimilarSliderSectionClass {
+  position: relative;
+  width: 900px;
+  height: auto;
+  border: 1px solid red;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+.imageSliderDivContainerClass div, .imageSimilarSliderDivContainerClass div {
+  display: inline-block;
+  width: 250px;
+  height: auto;
+  margin: 10px;
+  border: 3px solid #8AC007;
+}
+
+.imageSliderDivContainerClass img, .imageSimilarSliderDivContainerClass img {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+
+button {
+  position: absolute;
+}
+
+.next, .next_sim {
+  right: 120px;
+}
+
+.prev, .prev_sim {
+  left: 100px;
+}

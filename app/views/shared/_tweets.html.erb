@@ -1,0 +1,15 @@
+<section id="tweets">
+	<ul>
+  	  	<%if (@tweets != nil)
+	    	@tweets.each do |item|
+	      		if (item.media?)
+	      			item.media.to_a.each do |itemMedia| %>
+	      				<li>
+	      					<%= item.text + "   ->   " + itemMedia.media_url.to_s %>
+	      				</li>
+	      			<% end %>	
+  				<% end %>
+	      	<% end %>
+      	<% end %>
+  	</ul>
+</section>
