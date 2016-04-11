@@ -10,10 +10,15 @@ Application's details
 
 * Configuration
 1) Install Ruby on Rails
+
 2) Install PostgreSQL
+
 3) Install/Resolve gems
+
 4) Configure the database user settings.
+
 5) Run rake db:create to generate the database locally
+
 6) Create a Twitter account and get the tokens needed for authentication purposes. See the following page for details on how to get those tokens: 
 
    https://dev.twitter.com/oauth/overview/application-owner-access-tokens
@@ -34,7 +39,7 @@ Application's details
 * Database creation
 You must have a valid postgres user with permission to create database and tables. See the page below for details on how to install the PostgreSQL on you environment:
 
-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
+   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
 
 * Deployment instructions
 To run this application locally you should run: rails server.
