@@ -1,6 +1,6 @@
 == README
 
-This application retrieves images from Twitter's users posts to allow you to perform similarity search over them. We store tweet's data on our own database, in witch the similarity search is performed.
+This application retrieves images from Twitter posts to allow you to perform similarity search over them. We store tweet's data on our own database, in witch the similarity search is performed. (Obs. Similarity search not yet implemented)
 
 Application's details
 
