@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,18 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20160411190337) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "tweet_image_users", force: :cascade do |t|
-    t.string   "user_name"
-    t.string   "image_url"
-    t.string   "tweet"
-    t.string   "feat_vec"
+  create_table "tweet_image_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "user_name"
+    t.string "image_url"
+    t.string "tweet"
+    t.string "feat_vec"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_name", "image_url"], name: "unique_constraint_tweet_images_users", unique: true
   end
-
-  add_index "tweet_image_users", ["user_name", "image_url"], name: "unique_constraint_tweet_images_users", unique: true, using: :btree
 
 end
