@@ -4,9 +4,9 @@ This application retrieves images from Twitter's users posts to allow you to per
 
 Application's details
 
-* Ruby version: 2.3.0
+* Ruby version: 2.4.2
 
-* System dependencies: PostgreSQL database
+* System dependencies: MySQL database
 
 * Configuration
 1) Install Ruby on Rails
